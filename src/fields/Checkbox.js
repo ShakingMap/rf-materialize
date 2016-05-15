@@ -19,26 +19,25 @@ const defaultProps = {
 
 class Checkbox extends React.Component {
     render() {
-        let {id, validationState, value, onChange, readOnly, disabled,
+        let {
+            id, validationState, value, onChange, readOnly, disabled,
             label,
-            ...otherProps} = this.props;
+            ...otherProps
+        } = this.props;
 
         if (value === null) value = false;
 
-        return <div className={'checkbox' + (validationState ? (' has-'+validationState):'')}>
-            <label>
-                <input
-                    ref="input"
-                    id={id}
-                    type="checkbox"
-                    checked={value}
-                    onChange={e=>onChange(e.target.checked, e)}
-                    readOnly={readOnly}
-                    disabled={disabled}
-                    {...otherProps}
-                />
-                {label}
-            </label>
+        return <div>
+            <input
+                id={id}
+                type="checkbox"
+                checked={value}
+                onChange={e=>onChange(e.target.checked, e)}
+                readOnly={readOnly}
+                disabled={disabled}
+                {...otherProps}
+            />
+            <label htmlFor={id}>{label}</label>
         </div>
     }
 }

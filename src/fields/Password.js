@@ -1,4 +1,5 @@
 import React from 'react';
+import utils from '../utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -26,15 +27,19 @@ class Password extends React.Component {
     }
 
     render() {
-        let {id, validationState, value, onChange, readOnly, disabled,
+        let {
+            id, validationState, value, onChange, readOnly, disabled,
             display,
-            ...otherProps} = this.props;
+            ...otherProps
+        } = this.props;
 
         if (value === null) value = '';
         display = display || this.state.display;
+        const style = utils.getInputValidationStyle(validationState);
 
-        return <div className={'input-group' + (validationState ? (' has-'+validationState):'')}>
+        return <div style={{display: 'flex', alignItems: 'center'}}>
             <input
+                style={style}
                 id={id}
                 type={display==='show' ? 'text' : 'password'}
                 className="form-control"
@@ -44,12 +49,9 @@ class Password extends React.Component {
                 disabled={disabled}
                 {...otherProps}
             />
-                <span className="input-group-btn">
-                    <button className="btn btn-default" type="button" onClick={this.onToggleDisplay.bind(this)}>
-                        <span className={`glyphicon glyphicon-eye-${display==='show'?'open':'close'}`}
-                              aria-hidden="true"></span>
-                    </button>
-                </span>
+            <i className="material-icons" style={{cursor: 'pointer'}} onClick={this.onToggleDisplay.bind(this)}>
+                {display === 'show' ? 'lock_open' : 'lock'}
+            </i>
         </div>
     }
 

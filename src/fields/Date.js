@@ -10,7 +10,7 @@ const propTypes = {
     readOnly: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
 
-    display: React.PropTypes.oneOf(['utc', 'local']),
+    display: React.PropTypes.oneOf(['utc', 'local'])
 
     // other props will be passed down to inner input directly
 };

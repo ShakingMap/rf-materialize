@@ -1,11 +1,11 @@
-# RF Bootstrap3
-[rf-form](https://github.com/ShakingMap/rf-form) components suit for bootstrap3.
+# RF Materialize
+[rf-form](https://github.com/ShakingMap/rf-form) components suit for materialize.
 
 This docs list the components of this suit. refer to [rf-form](https://github.com/ShakingMap/rf-form#apis) to see default apis.
 
 ## Installation
-- install bootstrap3 styles. this package is roughly tested with bootstrap 3.3.6
-- `npm install --save rf-bootstrap3`
+- install materialize styles. this package is roughly tested with materialize 0.97.6
+- `npm install --save rf-materialize`
 
 ## Components
 
@@ -27,7 +27,6 @@ this is a general input field. all other props will be passed down to the inner 
 #### Textarea
 - value - string
 - placeholder- string
-- rows - number
 
 #### Number
 - value - number
@@ -52,6 +51,7 @@ this is a general input field. all other props will be passed down to the inner 
 
 #### Checkbox
 - value - bool
+- label - string
 
 #### CheckboxGroup
 - value - array of string
@@ -64,13 +64,10 @@ this is a general input field. all other props will be passed down to the inner 
 - inline - bool. if true, display as inline style
 
 #### Select
-- value - string
-- items - object as {key: {label, readOnly, disabled}}, each key is for one item
-- placeholder - bool. if true, display as inline style
+NOT IMPLEMENTED
 
 #### MultipleSelect
-- value - array of string
-- items - object as {key: {label, readOnly, disabled}}, each key is for one item
+NOT IMPLEMENTED
 
 ## License
 ISC

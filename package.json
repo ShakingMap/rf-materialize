@@ -1,7 +1,7 @@
 {
-  "name": "rf-bootstrap3",
-  "version": "0.1.1",
-  "description": "rf-form components suit for bootstrap3.",
+  "name": "rf-materialize",
+  "version": "0.1.0",
+  "description": "rf-form components suit for materialize.",
   "main": "lib/index.js",
   "scripts": {
     "test": "node node_modules/webpack/bin/webpack.js --progress --colors --watch -d",
@@ -13,7 +13,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShakingMap/rf-bootstrap3.git"
+    "url": "git+https://github.com/ShakingMap/rf-materialize.git"
   },
   "dependencies": {
     "moment": "^2.13.0"

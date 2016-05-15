@@ -7,10 +7,8 @@ const propTypes = {
 class Group extends React.Component {
     render() {
         const {validationState, children} = this.props;
-        return <div className="panel panel-default">
-            <div className="panel-body">
-                {children}
-            </div>
+        return <div className="card-panel">
+            {children}
         </div>
     }
 }

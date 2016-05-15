@@ -1,4 +1,5 @@
 import React from 'react';
+import utils from './utils';
 
 const propTypes = {
     label: React.PropTypes.string,
@@ -10,14 +11,13 @@ const propTypes = {
 class Wrapper extends React.Component {
     render() {
         const {label, validationState, validationMessage, id, children} = this.props;
-        const validationClass =
-            validationState === 'error' ? 'red-text' :
-                validationState === 'warning' ? 'yellow-text' :
-                    validationState === 'success' ? 'green-text' : '';
+
+        const validationColor = utils.getValidationColor(validationState);
+
         return <div>
-            {label ? <label className={validationClass} htmlFor={id}>{label}</label> : null}
+            {label ? <label style={{color: validationColor}} htmlFor={id}>{label}</label> : null}
             {children}
-            {label ? <span className={validationClass}>{validationMessage}</span> : null}
+            {label ? <span style={{color: validationColor}}>{validationMessage}</span> : null}
         </div>
     }
 }

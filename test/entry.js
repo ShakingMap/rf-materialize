@@ -34,7 +34,7 @@ class TestPage extends React.Component {
             }}>
                 <fields.Text {...{
                     id: 'text-field',
-                    validationState: 'error',
+                    validationState: 'success',
                     value: this.state.text,
                     onChange: (value)=>this.setState({text: value})
                     //value: undefined,

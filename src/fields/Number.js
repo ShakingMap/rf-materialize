@@ -1,4 +1,5 @@
 import React from 'react';
+import utils from '../utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -18,9 +19,11 @@ const defaultProps = {
 class NumberField extends React.Component {
     render() {
         let {id, validationState, value, onChange, readOnly, disabled, ...otherProps} = this.props;
+        const style = utils.getInputValidationStyle(validationState);
 
         return <div className={validationState ? ('has-'+validationState):''}>
             <input
+                style={style}
                 id={id}
                 className="form-control"
                 type="number"

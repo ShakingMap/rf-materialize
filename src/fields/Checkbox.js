@@ -1,4 +1,5 @@
 import React from 'react';
+import utils from '../utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -26,7 +27,8 @@ class Checkbox extends React.Component {
         } = this.props;
 
         if (value === null) value = false;
-
+        const validationColor = utils.getValidationColor(validationState);
+        
         return <div>
             <input
                 id={id}
@@ -37,7 +39,7 @@ class Checkbox extends React.Component {
                 disabled={disabled}
                 {...otherProps}
             />
-            <label htmlFor={id}>{label}</label>
+            <label style={{color: validationColor}} htmlFor={id}>{label}</label>
         </div>
     }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import utils from '../utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -9,7 +10,7 @@ const propTypes = {
     readOnly: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
 
-    display: React.PropTypes.oneOf(['utc', 'local'])
+    display: React.PropTypes.oneOf(['utc', 'local']),
 
     // other props will be passed down to inner input directly
 };
@@ -24,11 +25,12 @@ class DateField extends React.Component {
         let {id, validationState, value, onChange, readOnly, disabled,
             display,
             ...otherProps} = this.props;
+        const style = utils.getInputValidationStyle(validationState);
 
         return <div className={validationState ? ('has-'+validationState):''}>
             <input
+                style={style}
                 id={id}
-                className="form-control"
                 type="date"
                 value={this.getInnerValue()}
                 onChange={this.onChange.bind(this)}

@@ -1,4 +1,5 @@
 require('materialize-css/dist/css/materialize.css');
+require('materialize-css');
 
 import React from 'react';
 import ReactDOM from 'react-dom';

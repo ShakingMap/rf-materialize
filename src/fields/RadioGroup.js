@@ -1,4 +1,5 @@
 import React from 'react';
+import utils from '../utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -29,13 +30,14 @@ class RadioGroup extends React.Component {
             ...otherProps} = this.props;
 
         if (value === null) value = '';
+        const validationColor = utils.getValidationColor(validationState);
 
-        return <div className={validationState ? ('has-'+validationState):''}>
+        return <div>
             {
-                Object.keys(items).map((key, index)=> <div key={key} className={inline? 'radio-inline':'radio'}>
-                    <label>
+                Object.keys(items).map((key, index)=> <div key={key} style={inline? {display: 'inline', marginRight: '2rem'}:null}>
                         <input
                             {...{
+                                id: id + '.' + index,
                                 ref: key,
                                 name: this.groupName,
                                 type: 'radio',
@@ -45,8 +47,7 @@ class RadioGroup extends React.Component {
                                 onChange: e=> onChange(key, e)
                             }}
                         />
-                        {items[key].label}
-                    </label>
+                    <label style={{color: validationColor}} htmlFor={id + '.' + index}>{items[key].label}</label>
                 </div>)
             }
         </div>

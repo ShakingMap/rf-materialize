@@ -1,3 +1,7 @@
+## 0.3.0
+- fix bug of cleanValue of RadioGroup
+- support simpler items options for CheckboxGroup and RadioGroup
+
 ## 0.2.0
 support cleanValue methods for all fields
 

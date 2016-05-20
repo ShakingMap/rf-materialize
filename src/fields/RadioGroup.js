@@ -9,7 +9,7 @@ const propTypes = {
     readOnly: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
 
-    items: React.PropTypes.object, // key:{label, readOnly, disabled}
+    items: React.PropTypes.object, // key:{label, readOnly, disabled} | key:label
     inline: React.PropTypes.bool
 };
 
@@ -31,6 +31,12 @@ class RadioGroup extends React.Component {
 
         const validationColor = utils.getValidationColor(validationState);
 
+        const validItems = {};
+        Object.keys(items).forEach(key=> {
+            validItems[key] = typeof items[key] === 'object' ?  items[key] : {label: items[key]}
+        });
+        items = validItems;
+        
         return <div>
             {
                 Object.keys(items).map((key, index)=> <div key={key} style={inline? {display: 'inline', marginRight: '2rem'}:null}>
@@ -57,7 +63,7 @@ RadioGroup.propTypes = propTypes;
 RadioGroup.defaultProps = defaultProps;
 RadioGroup.cleanValue = (value, {items})=> {
     if (value === undefined) return value;
-    else if (!!items[value]) return '';
+    else if (!items[value]) return '';
     else return value;
 };
 

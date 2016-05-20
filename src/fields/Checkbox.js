@@ -26,7 +26,6 @@ class Checkbox extends React.Component {
             ...otherProps
         } = this.props;
 
-        if (value === null) value = false;
         const validationColor = utils.getValidationColor(validationState);
         
         return <div>
@@ -46,5 +45,6 @@ class Checkbox extends React.Component {
 
 Checkbox.propTypes = propTypes;
 Checkbox.defaultProps = defaultProps;
+Checkbox.cleanValue = (value, options) => value === undefined ? value : !!value;
 
 export default Checkbox;

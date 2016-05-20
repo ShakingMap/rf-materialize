@@ -75,5 +75,10 @@ class DatetimeLocal extends React.Component {
 
 DatetimeLocal.propTypes = propTypes;
 DatetimeLocal.defaultProps = defaultProps;
+DatetimeLocal.cleanValue = (value, options)=> {
+    if (value === undefined) return value;
+    else if (value instanceof Date) return value;
+    else return null;
+};
 
 export default DatetimeLocal;

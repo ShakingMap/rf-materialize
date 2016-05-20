@@ -29,7 +29,6 @@ class RadioGroup extends React.Component {
             items, inline,
             ...otherProps} = this.props;
 
-        if (value === null) value = '';
         const validationColor = utils.getValidationColor(validationState);
 
         return <div>
@@ -56,5 +55,10 @@ class RadioGroup extends React.Component {
 
 RadioGroup.propTypes = propTypes;
 RadioGroup.defaultProps = defaultProps;
+RadioGroup.cleanValue = (value, {items})=> {
+    if (value === undefined) return value;
+    else if (!!items[value]) return '';
+    else return value;
+};
 
 export default RadioGroup;

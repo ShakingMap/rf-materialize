@@ -20,7 +20,6 @@ class Input extends React.Component {
     render() {
         let {id, validationState, value, onChange, readOnly, disabled, ...otherProps} = this.props;
 
-        if (value === null) value = '';
         const style = utils.getInputValidationStyle(validationState);
 
         return <input
@@ -37,5 +36,11 @@ class Input extends React.Component {
 
 Input.propTypes = propTypes;
 Input.defaultProps = defaultProps;
+Input.cleanValue = (value, options)=> {
+    if (value === undefined) return value;
+    else if (value === null) return '';
+    else if (typeof value === 'string') return value;
+    else return String(value);
+};
 
 export default Input;

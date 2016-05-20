@@ -27,7 +27,7 @@ class NumberField extends React.Component {
                 id={id}
                 className="form-control"
                 type="number"
-                value={value === undefined ? undefined : value === null ? '' : String(value)}
+                value={value === undefined ? undefined : String(value)}
                 onChange={e=>onChange(e.target.value === '' ? null : Number(e.target.value), e)}
                 readOnly={readOnly}
                 disabled={disabled}
@@ -40,5 +40,10 @@ class NumberField extends React.Component {
 NumberField.propTypes = propTypes;
 NumberField.defaultProps = defaultProps;
 NumberField.displayName = 'Number';
+NumberField.cleanValue = (value, options)=> {
+    if (value === undefined) return value;
+    else if (typeof value !== 'number') return Number(value);
+    else return value;
+};
 
 export default NumberField;

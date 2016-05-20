@@ -26,7 +26,6 @@ class CheckboxGroup extends React.Component {
             ...otherProps
         } = this.props;
 
-        if (value === null) value = [];
         const validationColor = utils.getValidationColor(validationState);
 
         return <div>
@@ -55,5 +54,10 @@ class CheckboxGroup extends React.Component {
 
 CheckboxGroup.propTypes = propTypes;
 CheckboxGroup.defaultProps = defaultProps;
+CheckboxGroup.cleanValue = (value, {items}) => {
+    if (value === undefined) return value;
+    else if (!Array.isArray(value)) return [];
+    else return value.filter(key=>!!items[key])
+};
 
 export default CheckboxGroup;

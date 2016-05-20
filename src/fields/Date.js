@@ -78,5 +78,10 @@ class DateField extends React.Component {
 DateField.propTypes = propTypes;
 DateField.defaultProps = defaultProps;
 DateField.displayName = 'Date';
+DateField.cleanValue = (value, options)=> {
+    if (value === undefined) return value;
+    else if (value instanceof Date) return value;
+    else return null;
+};
 
 export default DateField;

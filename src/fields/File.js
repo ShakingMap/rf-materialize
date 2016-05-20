@@ -27,8 +27,6 @@ class File extends React.Component {
             ...otherProps
         } = this.props;
 
-        if (value === undefined) value = {path: undefined};
-        else if (value === null) value = {path: ''};
         const showValue = value.path === undefined ? undefined : ((value.file && value.file.name) || '');
         const style = utils.getInputValidationStyle(validationState);
 
@@ -48,23 +46,16 @@ class File extends React.Component {
             <div className="file-path-wrapper">
                 <input value={showValue} style={style} className="file-path" type="text" readOnly={readOnly} disabled={disabled}/>
             </div>
-        </div>;
-
-        // return <div className={validationState ? ('has-'+validationState):''}>
-        //     <input
-        //         id={id}
-        //         type="file"
-        //         value={value.path}
-        //         onChange={e=>onChange({path:e.target.value, file:e.target.files[0], files: e.target.files}, e)}
-        //         readOnly={readOnly}
-        //         disabled={disabled}
-        //         {...otherProps}
-        //     />
-        // </div>
+        </div>
     }
 }
 
 File.propTypes = propTypes;
 File.defaultProps = defaultProps;
+File.cleanValue = (value, options)=> {
+    if (value === undefined) return {path: undefined};
+    else if (!value || typeof value !== 'object' || typeof value.path !== 'string') return {path: ''};
+    else return value;
+};
 
 export default File;

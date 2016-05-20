@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import utils from '../utils';
+import {cleanValue} from 'rf-fields-utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -43,7 +44,6 @@ class DateField extends React.Component {
 
     getInnerValue() {
         const {value, display} = this.props;
-        if (value === undefined) return undefined;
         if (value === null) return '';
 
         // value is a date object...
@@ -78,10 +78,6 @@ class DateField extends React.Component {
 DateField.propTypes = propTypes;
 DateField.defaultProps = defaultProps;
 DateField.displayName = 'Date';
-DateField.cleanValue = (value, options)=> {
-    if (value === undefined) return value;
-    else if (value instanceof Date) return value;
-    else return null;
-};
+DateField.cleanValue = cleanValue.date;
 
 export default DateField;

@@ -1,5 +1,6 @@
 import React from 'react';
 import utils from '../utils';
+import {cleanValue} from 'rf-fields-utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -45,6 +46,6 @@ class Checkbox extends React.Component {
 
 Checkbox.propTypes = propTypes;
 Checkbox.defaultProps = defaultProps;
-Checkbox.cleanValue = (value, options) => value === undefined ? value : !!value;
+Checkbox.cleanValue = cleanValue.bool;
 
 export default Checkbox;

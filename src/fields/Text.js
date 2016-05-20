@@ -1,5 +1,6 @@
 import React from 'react';
 import utils from '../utils';
+import {cleanValue} from 'rf-fields-utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -36,11 +37,6 @@ class Text extends React.Component {
 
 Text.propTypes = propTypes;
 Text.defaultProps = defaultProps;
-Text.cleanValue = (value, options) => {
-    if (value === undefined) return value;
-    else if (value === null) return '';
-    else if (typeof value === 'string') return value;
-    else return String(value);
-};
+Text.cleanValue = cleanValue.string;
 
 export default Text;

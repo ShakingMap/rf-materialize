@@ -1,5 +1,6 @@
 import React from 'react';
 import utils from '../utils';
+import {cleanValue} from 'rf-fields-utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -36,11 +37,6 @@ class Input extends React.Component {
 
 Input.propTypes = propTypes;
 Input.defaultProps = defaultProps;
-Input.cleanValue = (value, options)=> {
-    if (value === undefined) return value;
-    else if (value === null) return '';
-    else if (typeof value === 'string') return value;
-    else return String(value);
-};
+Input.cleanValue = cleanValue.string;
 
 export default Input;

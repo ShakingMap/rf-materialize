@@ -1,5 +1,6 @@
 import React from 'react';
 import utils from '../utils';
+import {cleanValue} from 'rf-fields-utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -41,7 +42,6 @@ class Password extends React.Component {
                 style={style}
                 id={id}
                 type={display==='show' ? 'text' : 'password'}
-                className="form-control"
                 value={value}
                 onChange={e=>onChange(e.target.value, e)}
                 readOnly={readOnly}
@@ -61,11 +61,6 @@ class Password extends React.Component {
 
 Password.propTypes = propTypes;
 Password.defaultProps = defaultProps;
-Password.cleanValue = (value, options) => {
-    if (value === undefined) return value;
-    else if (value === null) return '';
-    else if (typeof value === 'string') return value;
-    else return String(value);
-};
+Password.cleanValue = cleanValue.string;
 
 export default Password;

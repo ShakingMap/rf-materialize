@@ -1,5 +1,6 @@
 import React from 'react';
 import utils from '../utils';
+import {cleanValue, formatItems} from 'rf-fields-utils';
 
 const propTypes = {
     id: React.PropTypes.string,
@@ -30,13 +31,8 @@ class RadioGroup extends React.Component {
             ...otherProps} = this.props;
 
         const validationColor = utils.getValidationColor(validationState);
+        items = formatItems(items);
 
-        const validItems = {};
-        Object.keys(items).forEach(key=> {
-            validItems[key] = typeof items[key] === 'object' ?  items[key] : {label: items[key]}
-        });
-        items = validItems;
-        
         return <div>
             {
                 Object.keys(items).map((key, index)=> <div key={key} style={inline? {display: 'inline', marginRight: '2rem'}:null}>
@@ -46,7 +42,7 @@ class RadioGroup extends React.Component {
                                 ref: key,
                                 name: this.groupName,
                                 type: 'radio',
-                                checked: value === undefined ? undefined : value === key,
+                                checked: value === key,
                                 disabled: items[key].disabled || disabled,
                                 readOnly: items[key].readOnly || readOnly,
                                 onChange: e=> onChange(key, e)
@@ -61,10 +57,6 @@ class RadioGroup extends React.Component {
 
 RadioGroup.propTypes = propTypes;
 RadioGroup.defaultProps = defaultProps;
-RadioGroup.cleanValue = (value, {items})=> {
-    if (value === undefined) return value;
-    else if (!items[value]) return '';
-    else return value;
-};
+RadioGroup.cleanValue = cleanValue.oneOfItems;
 
 export default RadioGroup;

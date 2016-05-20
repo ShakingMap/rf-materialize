@@ -1,6 +1,6 @@
 {
   "name": "rf-materialize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "rf-form components suit for materialize.",
   "main": "lib/index.js",
   "scripts": {

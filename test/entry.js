@@ -361,6 +361,48 @@ class TestPage extends React.Component {
                     </Wrapper>
                 </Array>
             </Wrapper>
+            <Wrapper {...{
+                label: 'Array2',
+                validationState: 'success',
+                validationMessage: 'ok'
+            }}>
+                <Array {...{
+                    onInsert: index=>console.log('insert at ' + index),
+                    onRemove: index=>console.log('remove at ' + index),
+                    onMove: (from, to)=>console.log(`move from ${from} to ${to}`)
+                }}>
+                    <Wrapper {...{
+                        label: 'Text',
+                        validationState: 'success',
+                        validationMessage: 'ok',
+                        id: 'text-field'
+                    }}>
+                        <fields.Text {...{
+                            id: 'text-field',
+                            validationState: 'error',
+                            value: this.state.text,
+                            onChange: (value)=>this.setState({text: value})
+                            //value: undefined,
+                            //onChange: (value)=>console.log(value)
+                        }}/>
+                    </Wrapper>
+                    <Wrapper {...{
+                        label: 'Text',
+                        validationState: 'success',
+                        validationMessage: 'ok',
+                        id: 'text-field'
+                    }}>
+                        <fields.Text {...{
+                            id: 'text-field',
+                            validationState: 'error',
+                            value: this.state.text,
+                            onChange: (value)=>this.setState({text: value})
+                            //value: undefined,
+                            //onChange: (value)=>console.log(value)
+                        }}/>
+                    </Wrapper>
+                </Array>
+            </Wrapper>
         </div>
     }
 }

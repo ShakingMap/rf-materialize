@@ -40,6 +40,8 @@ this is a general input field. all other props will be passed down to the inner 
 #### File
 - value - object as {path}
 - onChange - func(value, event), but value is an object as {path, file, files}
+- enablePreview - bool, if true, a preview of the selected image will be shown
+- previewStyle - object, inline-style for the preview, default to {maxWidth: '100%', maxHeight: '200px'}
 
 #### Date
 - value - js Date

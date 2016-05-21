@@ -1,6 +1,6 @@
 {
   "name": "rf-materialize",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "rf-form components suit for materialize.",
   "main": "lib/index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "moment": "^2.13.0",
-    "rf-fields-utils": "^0.1.0"
+    "rf-fields-utils": "^0.2.1"
   },
   "peerDependencies": {
     "react": ">=0.13.0"

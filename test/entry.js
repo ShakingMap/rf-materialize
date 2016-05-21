@@ -81,6 +81,7 @@ class TestPage extends React.Component {
                 <fields.File {...{
                     id: 'file-field',
                     validationState: 'error',
+                    enablePreview: true,
                     value: this.state.file,
                     onChange: (value)=>this.setState({file: value})
                     //value: undefined,

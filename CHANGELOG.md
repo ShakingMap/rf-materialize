@@ -1,3 +1,6 @@
+## 0.4.0
+- support image preview for file field
+
 ## 0.3.1
 - using rf-fields-utils to implement functions.
 

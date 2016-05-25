@@ -17,7 +17,7 @@ class Wrapper extends React.Component {
         return <div>
             {label ? <label style={{color: validationColor}} htmlFor={id}>{label}</label> : null}
             {children}
-            {label ? <span style={{color: validationColor}}>{validationMessage}</span> : null}
+            {validationMessage ? <span style={{color: validationColor}}>{validationMessage}</span> : null}
         </div>
     }
 }
